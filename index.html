@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Border Wars RPG </title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+</head>
+<style>
+body {
+    background: url(assets/images/walledliberty.png) no-repeat;
+    background-attachment: fixed;
+    background-position: left top; 
+    background-size: 100%;
+} 
+
+h1, h2, p, div {
+    font-family: 'Orbitron', sans-serif;
+    color: yellow;
+    text-shadow: 0 0 10px #000000;
+
+    margin: 20px;
+
+}
+
+p {
+text-align: left
+}
+
+#button {
+left: 0;
+position: absolute;
+}
+
+
+.avatar {
+  width: 150px;
+  margin: 0px 40px 0px 40px;
+  cursor: pointer;
+  display: inline-block;
+}
+.avatar-img {
+  border: 0 none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+}
+.avatar-name {
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 30px;
+  font-family: 'Orbitron', sans-serif;  
+  font-size: 20px;
+}
+.avatar-health {
+  text-align: center;
+}
+
+</style>
+
+<body>
+    <div class"main container">
+            <div class"container">
+        <h1 class="text-right" id="game-name">Border Wars RPG:</h1><h2 class="text-right">Attack on the Refuge</h2>
+    </div>
+
+    <div class"container">
+        <div class="row">Pick your Character
+        <div id="avatars">
+        </div></div></div>
+    
+    <div class"container">
+            <div class="row">Enemies Available to Attack
+        <div id="enemies"></div></div>
+    
+    
+    <div class"container">
+            <div class="row">Fight Section
+        <div id="fight-section">
+    <div id="button"><button id="attack"></button></div>
+</div></div></div>
+    
+    
+    <div class"container">
+            <div class="row">Defender
+    <div id="defender">
+    </div></div></div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+
+
+    <script>
+
+                    $(document).ready(function() {
+
+
+    // create basic html shell
+        // create player objects in jQuery
+        // add details in css 
+
+        //begin game function
+
+
+// begin  with restart
+
+//function start () {
+    //    window.gamePlay = {
+     //   gameOver: false,
+     //   outcome: false,
+     //   playerAttack:  false,
+    // }
+
+// create variable from characters 
+// include attributes for `Health Points`, `Attack Power` and `Counter Attack Power`.
+
+
+    var refugeeChild = {
+        identity: "Refugee Child",
+        image: "assets/images/refugee-child.png",
+        health: 99,
+        attack: (Math.floor(Math.random() * 20) + 5),
+        attackBack: (Math.floor(Math.random() * 20) + 5)
+    };
+
+    var asylumSeeker = {
+        identity: "Asylum Seeker",
+        image: "assets/images/asylum-seeker.png",
+        health: 90,
+        attack: (Math.floor(Math.random() * 15) + 1),
+        attackBack: (Math.floor(Math.random() * 15) + 1)
+    }
+
+    var jeffSessions = {
+        identity: "Jeff Sessions",
+        image: "assets/images/jeff-sessions.png",
+        health: 10,
+        attack: (Math.floor(Math.random() * 85) + 50),
+        attackBack: (Math.floor(Math.random() * 85) + 50)
+    }
+
+    var iceAgent = {
+        identity: "ICE Agent",
+        image: "assets/images/ice-agent.png",
+        health: 50,
+        attack: (Math.floor(Math.random() * 45) + 30),
+        attackBack: (Math.floor(Math.random() * 45) + 30),
+    }
+
+    var avatarArray = [refugeeChild, asylumSeeker, jeffSessions, iceAgent];
+
+
+console.log(avatarArray)
+
+//Character and game attributes
+var playerAvatar;
+var defender;
+var enemy;
+var fights = [];
+var playerHeath;
+var playerAttack;
+var enemyHeath;
+var characterDamage = 0;
+var defenderDamage = 0;
+var outcome;
+var amnesty = false;
+
+        //
+        //
+        //
+        //
+        //
+        //
+        //Game Play
+
+
+function gameBuild(){
+
+// characterCreation(),
+// characterSelection(), 
+// defenderSelection(),
+
+
+}
+
+var buildThegame = function (avatar, avatarField, GoodOrEvil){
+
+//     if (avatarArray.length === 4){
+
+//     for (var i =0; i < avatarArray.length; i++) {
+
+// var avatar = $('<div id='+avatarArray[i].identity+'>');
+// 		avatar.append('<div class="avatarIdentity">'+avatarArray[i].identity);
+// 		avatar.append(avatarArray[i].image);
+// 		avatar.append('<div class="characterHealth">'+avatarArray[i].health);
+// 		avatar.attr("data-name", avatarArray[i].identity);
+//         avatar.attr("data-health", avatarArray[i].health);
+//         avatar.attr("data-attack", avatarArray[i].attack);
+// 		avatar.attr("class", 'character col-md-3');
+// 		avatars.push(avatarArray[i].identity);
+// 		$('#avatars').append(avatar);
+//     }
+// }
+//     else if (avatarArray.length <= 3){
+//         $("#enemies").empty()
+
+//         avatarArray = [],
+    
+     
+//         avatar.append('<div class="avatarIdentity">'+avatarArray[i].identity);
+// 		avatar.append(avatarArray[i].image);
+// 		avatar.append('<div class="characterHealth">'+avatarArray[i].health);
+// 		avatar.attr("data-name", avatarArray[i].identity);
+//         avatar.attr("data-health", avatarArray[i].health);
+//         avatar.attr("data-attack", avatarArray[i].attack);
+//         avatar.attr("class", "enemies")
+//         avatars.push(avatarArray[i].identity);
+//         $('#enemies').append(avatar);
+//     }
+
+
+var avatarBox = $("<div class='avatar' data-name='" + avatarArray.avatar + "'>");
+var avatarIdentity = $("<div class='avatar-identity'>").text(avatarArray.avatar);
+var avatarImage = $("<img class='avatar-image'>").attr("src", avatarArray.image);
+var avatarHeath = $("<div class='avatar-health'>").text(avatarArray.health);
+avatarBox.append(avatarIdentity).append(avatarImage).append(avatarHeath);
+$(avatarField).append(avatarBox);
+
+if (GoodOrEvil == "enemy"){
+   $(avatarBox).addClass("enemy");
+}
+else if (GoodOrEvil == "defender"){
+   defender = characterSelection;
+   $(avatar).addClass("current-enemy")
+}
+}; 
+
+
+var gameAlerts = function (update) {
+    var gameUpdate = $("#gameUpdate");
+    var newUpdate = $("<div>").text(update);
+        gameUpdate.append(newUpdate);
+
+        if (update == "clear") {
+            gameUpdate.text("");
+        }
+};
+
+ var avatarAssignment = function (avatarObject, borderCrossing){
+     if (borderCrossing == "avatarChoice"){
+         $(borderCrossing).empty();
+         for (var player in avatarObject) {
+         if 
+
+     }
+ }
+    
+
+
+//function characterSelection(assign){
+  
+//if (assign.length === 4) {
+   // Create for lop to iterate characters
+  // for (var i =0; i < assign.length; i++) {
+// use jQuery to assign each character with attributes
+ 
+//var character =$("div id=" + assign[i].)
+  // }
+
+
+//}
+
+
+
+
+//}
+
+
+
+// function gamePlay(){
+
+
+
+
+
+
+
+ //           };
+
+
+ function warZone (){
+
+ }
+
+                    });
+
+            
+
+        </script>
+</body>
+</html>
